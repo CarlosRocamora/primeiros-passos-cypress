@@ -28,7 +28,7 @@ class MenuPage {
       cy.get(this.selectorsList().dashBoardButton).click({force: true})
     }
 
-    accessDirectory() {
+    /*accessDirectory() {
       cy.get(this.selectorsList().directoryButton).click({force: true})
     }
 
@@ -44,7 +44,7 @@ class MenuPage {
     accessBuzz() {
       cy.get(this.selectorsList().buzzButton).click({force: true})
     }
-
+*/
 }
 
 export default MenuPage
