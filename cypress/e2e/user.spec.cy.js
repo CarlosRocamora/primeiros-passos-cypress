@@ -2,11 +2,12 @@ import userData from '../fixtures/users/userData.json'
 import LoginPage from '../pages/loginPage'
 import DashBoardPage from '../pages/dashboardPage'
 import MenuPage from '../pages/menuPage'
-
+import Maintenance from '../pages/maintenancePage'
 
 const loginPage = new LoginPage()
 const dashBoardPage = new DashBoardPage()
 const menuPage = new MenuPage()
+const maintenancePage = new Maintenance()
 
 describe('Orange HRM Tests', () => {
 
@@ -43,10 +44,18 @@ describe('Orange HRM Tests', () => {
     cy.get(selectorsList.submitButton).eq(0).click({force: true})
     cy.get('body').should('contain', 'Successfully Updated')
     cy.get('.oxd-toast-close')
-    cy.get(selectorsList.nationalityComboBox).eq(0).click({force: true})
-    cy.get(selectorsList.nationalitySelect).eq(3).click({force: true})
+    //cy.get(selectorsList.nationalityComboBox).eq(0).click({force: true})
+    //cy.get(selectorsList.nationalitySelect).eq(3).click({force: true})
     cy.get(selectorsList.nationalityComboBox).eq(1).click({force: true})
     cy.get(selectorsList.nationalitySelect).eq(3).click({force: true})
+    
+    menuPage.accessPerformance()
+    menuPage.accessDashBoard()
+    menuPage.accessDirectory()
+    menuPage.accessMaintenance()
+    maintenancePage.administratorAccess()
+    menuPage.accessClaim()
+    menuPage.accessBuzz()
     
     
   })
